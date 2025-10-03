@@ -1,0 +1,114 @@
+:root {
+    --wall-color: #34495e; /* Dark Blue-Gray */
+    --path-color: #ecf0f1; /* Light Gray */
+    --player-color: #f39c12; /* Orange */
+    --start-color: #2ecc71; /* Green */
+    --goal-color: #e74c3c; /* Red */
+    --bfs-color: #3498db; /* Blue */
+    --dfs-color: #9b59b6; /* Purple */
+    --cell-size: 25px; /* Default size, will be set by JS */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+h1 { color: var(--wall-color); }
+
+#controls {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap; /* Allows controls to wrap on smaller screens */
+    max-width: 800px;
+}
+
+button, #algorithm-select, #level-select {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid var(--wall-color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+}
+
+#generate-btn {
+    background-color: var(--start-color);
+    color: white;
+    font-weight: bold;
+}
+
+#solve-btn {
+    background-color: var(--bfs-color);
+    color: white;
+    font-weight: bold;
+}
+
+#status {
+    padding: 8px 12px;
+    background-color: var(--path-color);
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-weight: bold;
+    min-width: 250px;
+    text-align: center;
+}
+
+#maze-grid {
+    display: grid;
+    border: 3px solid var(--wall-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Set the maximum size of the grid container */
+    max-width: 600px; 
+    max-height: 600px;
+}
+
+.cell {
+    width: var(--cell-size); /* Uses the dynamically set JS size */
+    height: var(--cell-size); /* Uses the dynamically set JS size */
+    box-sizing: border-box;
+    /* Smooth Player Movement Animation */
+    transition: background-color 0.1s; 
+}
+
+/* Cell Types */
+.wall { background-color: var(--wall-color); }
+.path { background-color: var(--path-color); }
+.start { background-color: var(--start-color); }
+.goal { background-color: var(--goal-color); }
+
+/* Player */
+.player {
+    background-color: var(--player-color);
+    border: 1px solid #e67e22;
+    z-index: 10;
+}
+
+/* Solution Visualization */
+.solution.bfs {
+    background-color: var(--bfs-color);
+    animation: bfs-pulse 0.5s ease-in-out infinite alternate; 
+}
+.solution.dfs {
+    background-color: var(--dfs-color);
+    opacity: 0.7; /* DFS paths are often long, so make them slightly less dominant */
+}
+
+@keyframes bfs-pulse {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+#info {
+    margin-top: 20px;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
