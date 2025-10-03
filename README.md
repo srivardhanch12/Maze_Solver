@@ -40,28 +40,6 @@ The application supports both **manual mode** (user-driven exploration) and **au
 
 ---
 
-## 🖥️ Installation & Usage
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/maze-solver.git
-   cd maze-solver
-````
-
-2. **Create virtual environment & install dependencies**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the project**
-
-   ```bash
-   python main.py
-   ```
-
----
-
 ## 🎮 Modes of Operation
 
 * **Manual Mode**: Use arrow keys / inputs to navigate inside the maze.
